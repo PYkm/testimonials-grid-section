@@ -1,2 +1,192 @@
-.attribution { font-size: 11px; text-align: center; }
+:root {
+  --default-font: 500 0.8125em / 1.3 'Barlow Semi Condensed', 'Verdana', sans-serif;
+  --main-font-color: hsl(0, 0%, 100%);
+  --alternative-font-color: hsl(223, 12%, 35%);
+  --main-bg-color: hsl(213, 44%, 95%);
+  --daniel-clifford-figure-bg-color: hsl(263, 55%, 52%);
+  --jonathan-walters-figure-bg-color: hsl(217, 19%, 35%);
+  --jeanette-harmon-kira-whittle-figure-bg-color: hsl(0, 0%, 100%);
+  --patrick-abrams-figure-bg-color: hsl(219, 29%, 14%);
+}
+
+html {
+  font-size: 1em;
+}
+
+body {
+  background: var(--main-bg-color);
+  color: var(--main-font-color);
+  font: var(--default-font);
+  padding: 5.5em 2em;
+}
+
+main {
+  display: grid;
+  gap: 2em;
+}
+
+figure {
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em 0 hsla(217, 19%, 35%, 0.3);
+  padding: 1.5em 3em 2.5em;
+}
+
+figure:first-child {
+  background: no-repeat right 1em top url(../images/bg-pattern-quotation.svg) var(--daniel-clifford-figure-bg-color);
+}
+
+figure:nth-child(2) {
+  background: var(--jonathan-walters-figure-bg-color);
+}
+
+figure:nth-child(3),
+figure:nth-child(5) {
+  background: var(--jeanette-harmon-kira-whittle-figure-bg-color);
+  color: var(--alternative-font-color);
+}
+
+figure:nth-child(4) {
+  background: var(--patrick-abrams-figure-bg-color);
+}
+
+figcaption {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+}
+
+figcaption::before {
+  border: 0.17em solid;
+  border-radius: 170893px;
+  content: '';
+  display: block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.daniel-cliffor::before,
+.patrick-abrams::before {
+  border-color: hsl(265, 82%, 70%);
+}
+
+.jonathan-walters::before,
+.jeanette-harmon::before,
+.kira-whittle::before {
+  border-color: hsl(0, 0%, 100%);
+}
+
+.daniel-cliffor::before {
+  background: no-repeat center / contain url(../images/image-daniel.jpg);
+}
+
+.jonathan-walters::before {
+  background: no-repeat center / contain url(../images/image-jonathan.jpg);
+}
+
+.jeanette-harmon::before {
+  background: no-repeat center / contain url(../images/image-jeanette.jpg);
+}
+
+.patrick-abrams::before {
+  background: no-repeat center / contain url(../images/image-patrick.jpg);
+}
+
+.kira-whittle::before {
+  background: no-repeat center / contain url(../images/image-kira.jpg);
+}
+
+.personal_info p {
+  opacity: 0.5;
+}
+
+.summary {
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1em 0;
+}
+
+.testimonial {
+  opacity: 0.7;
+}
+
+.testimonial::before {
+  content: '“ ';
+}
+
+.testimonial::after {
+  content: ' ”';
+}
+
+.attribution { color: var(--alternative-font-color); font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+/* middle & large screen */
+@media (min-width: 51em) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100em;
+    min-height: 100vh;
+    padding: 3em 0;
+    width: 86%;
+  }
+}
+
+/* middle screen */
+@media (min-width: 51em) and (max-width: 75em) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  figure:first-child {
+    grid-column: 1 / 3;
+  }
+
+  figure:nth-child(2) {
+    grid-row: 2;
+  }
+
+  figure:nth-child(3) {
+  }
+
+  figure:nth-child(4) {
+    grid-column: 2 / 4;
+  }
+
+  figure:nth-child(5) {
+    grid-column: 1 / 4;
+    grid-row: 3;
+  }
+}
+
+/* large screen */
+@media (min-width: 75em) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  figure:first-child {
+    grid-column: 1 / 3;
+  }
+
+  figure:nth-child(2) {
+    grid-column: 3 / 4;
+  }
+
+  figure:nth-child(3) {
+    grid-row: 2;
+  }
+
+  figure:nth-child(4) {
+    grid-column: 2 / 4;
+  }
+
+  figure:nth-child(5) {
+    grid-column: 4;
+    grid-row: 1 / 3;
+  }
+
+}
